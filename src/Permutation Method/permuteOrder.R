@@ -1,4 +1,4 @@
-source("../Session 7/Stack.R")
+source("Stack.R")
 # see growHint.R for super literal, line-by-line, demonstrations 
 # of what will be occuring in your grow function
 

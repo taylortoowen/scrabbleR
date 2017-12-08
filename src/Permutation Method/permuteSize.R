@@ -1,4 +1,4 @@
-source("../Session 7/Stack.R")
+source("Stack.R")
 
 
 `%C%` <- function(n, k){
