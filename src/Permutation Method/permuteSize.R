@@ -1,4 +1,4 @@
-source("Stack.R")
+source("../Data Structures/Stack.R")
 
 
 `%C%` <- function(n, k){

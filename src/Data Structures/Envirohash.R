@@ -18,15 +18,8 @@ Set_ <- setRefClass("Set_",
 
                 elements = function() ls(env),
 
-                has = function(element){
-                    if( exists(element, envir = env) ){
-                        bound <- get(element, envir = env)
-                        # letters c,q,t are bound to functions
-                        return( !is.function( bound ) )
-                    }
-                    return( FALSE )
-                },
-
+                has = function(element) exists(element, envir = env),
+                
                 add = function(elements) for(item in elements) assign(item, NULL, env), # this can add one item or a vector
 
                 delete = function(element) remove(list = element, envir = env)
@@ -38,7 +31,7 @@ Set_ <- setRefClass("Set_",
 # in this constructor we're going to use the dot-dot-dot (aka ellipses)
 Set <- function(...){
     # the ellipses is used for a *variable* number of arguments
-    mySet <- Set_$new( env = new.env() )
+    mySet <- Set_$new( env = new.env(parent = emptyenv()) )
     # any function has nargs() which returns the number of formals (aka parameters)
     if( nargs() > 0){ # if we do Set() that's the empty set so you could skip this stuff
         arguments <- list(...) # turn the ... into a list

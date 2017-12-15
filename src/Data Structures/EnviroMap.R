@@ -1,4 +1,4 @@
-source("envirohash.R")
+source("../Data Structures/Envirohash.R")
 
 Counter_ <- setRefClass("Counter_", 
                 contains = "Set_",
@@ -38,7 +38,7 @@ Counter_ <- setRefClass("Counter_",
 # RETURN: a Counter object
 # BRIEF: create a counter object on a STR[] OR sequence of STR[] 
 Counter <- function(...){
-    myCounter <- Counter_$new( env = new.env() )
+    myCounter <- Counter_$new( env = new.env(parent = emptyenv())) 
     if( nargs() > 0){ 
         arguments <- list(...) 
         for( item in arguments ) myCounter$add(item) 
